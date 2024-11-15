@@ -16,7 +16,6 @@ export default function ListFilter({ onFilter }) {
         style={styles.filter}
         
         onChangeText={(e) => {
-          setChangedText(e);
           onFilter(e); // Added this line to make the filter work in real time
         }}
         
