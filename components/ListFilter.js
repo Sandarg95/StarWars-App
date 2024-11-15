@@ -15,6 +15,11 @@ export default function ListFilter({ onFilter }) {
         placeholder="Search"
         style={styles.filter}
         
+        onChangeText={(e) => {
+          setChangedText(e);
+          onFilter(e); // Added this line to make the filter work in real time
+        }}
+        
         onSubmitEditing={(e) => {
           setChangedText(e.nativeEvent.text);
         }}
