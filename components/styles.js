@@ -68,9 +68,6 @@ export default StyleSheet.create({
 
     backgroundColor: "ghostwhite",
   },
-
- 
-
   notificationInner: {
     backgroundColor: "azure",
     padding: 20,
