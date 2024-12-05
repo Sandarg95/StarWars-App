@@ -1,6 +1,8 @@
 import React from "react";
 import { View, ScrollView, Text, TouchableOpacity,Platform } from "react-native";
 import styles from "./components/styles";
+import { Animated } from 'react-native';
+import { SlideInLeft, SlideOutRight } from 'react-native-reanimated';
 
 export default function Swipeable({ onSwipe, name }) {
 
@@ -22,15 +24,17 @@ export default function Swipeable({ onSwipe, name }) {
   };
 
   return (
-    <View style={styles.swipeContainer}>
-      <ScrollView {...scrollProps}>
-        <TouchableOpacity>
-          <View style={styles.swipeItem}>
-            <Text style={styles.swipeItemText}>{name}</Text>
-          </View>
-        </TouchableOpacity>
-        <View style={styles.swipeBlank} />
-      </ScrollView>
-    </View>
+    <Animated.View entering={SlideInLeft} exiting={SlideOutRight}>
+      <View style={styles.swipeContainer}>
+        <ScrollView {...scrollProps}>
+          <TouchableOpacity>
+            <View style={styles.swipeItem}>
+              <Text style={styles.swipeItemText}>{name}</Text>
+            </View>
+          </TouchableOpacity>
+          <View style={styles.swipeBlank} />
+        </ScrollView>
+      </View>
+    </Animated.View>
   );
 }
