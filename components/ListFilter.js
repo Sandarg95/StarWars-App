@@ -14,8 +14,9 @@ export default function ListFilter({ onFilter }) {
         autoFocus
         placeholder="Search"
         style={styles.filter}
-        
+
         onChangeText={(e) => {
+          
           onFilter(e); // Added this line to make the filter work in real time
         }}
         
