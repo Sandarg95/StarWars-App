@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import List from "./List";
 
 function mapItems(items) {
-  return items.map((value, i) => ({ key: i.toString(), value }));
+  return items.map((value, i) => ({ id: i.toString(), name: value }));
 }
+
 
 export default function ListContainer({ fetchFunction }) {
   const [asc, setAsc] = useState(true);
@@ -12,10 +13,18 @@ export default function ListContainer({ fetchFunction }) {
 
   useEffect(() => {
     (async () => {
-      const { items } = await fetchFunction(filter, asc);
-      setData(mapItems(items));
+      try {
+        const { items } = await fetchFunction(filter, asc);
+        setData(mapItems(items));
+        console.log("Data fetched:", mapItems(items)); // Log fetched data after mapping
+      } catch (error) {
+        console.error("Error fetching data:", error); // Log errors if any occur
+      }
     })();
   }, [filter, asc, fetchFunction]);
+  
+
+  
 
   return (
     <List
