@@ -11,11 +11,20 @@ export default StyleSheet.create({
     }),
   },
   title: {
+    fontSize: 30,
+    fontWeight: "bold",
+    color: "blue",
+    textAlign: "center",
+    marginVertical: 20,
+  },
+  item: {
     fontSize: 20,
     fontWeight: "bold",
     color: "#333333",
-    textAlign: "center",
+    textAlign: "left",
     marginVertical: 20,
+    marginLeft: 50,
+    padding: 20,
   },
   box: {
     padding: 20,
@@ -60,21 +69,50 @@ export default StyleSheet.create({
   },
   notificationContainer: {
     flex: 1,
-    position: 'absolute', // Positionne le composant de manière absolue
+    position: 'absolute', 
     bottom: "10%",
-    left:"28%",
+    left:"33%",
     justifyContent: "center",
     alignItems: "center",
-
     backgroundColor: "ghostwhite",
   },
+
+ 
   notificationInner: {
     backgroundColor: "azure",
-    padding: 20,
+    padding: 5,
     borderWidth: 1,
     borderColor: "lightsteelblue",
     borderRadius: 2,
     alignItems: "center",
+  },
+
+  swipeContainer: {
+    flex: 1,
+    flexDirection: "row",
+    width: 200,
+    height: 30,
+    marginTop: 50,
+  },
+
+  swipeItem: {
+    width: 200,
+    height: 30,
+    backgroundColor: "azure",
+    justifyContent: "center",
+    borderWidth: 1,
+    borderRadius: 4,
+    borderColor: "slategrey",
+  },
+
+  swipeItemText: {
+    textAlign: "center",
+    color: "slategrey",
+  },
+
+  swipeBlank: {
+    width: 5,
+    height: 30,
   },
 
 });
