@@ -11,7 +11,7 @@ export default StyleSheet.create({
     }),
   },
   title: {
-    fontSize: 30,
+    fontSize: 25,
     fontWeight: "bold",
     color: "blue",
     textAlign: "center",
@@ -34,8 +34,9 @@ export default StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 4,
-    elevation: 4,
-    marginVertical: 0,
+    elevation: 10,
+    marginVertical: 20,
+    marginBottom:-50,
     alignItems: "center",
   },
   boxText: {
@@ -92,7 +93,7 @@ export default StyleSheet.create({
     flexDirection: "row",
     width: 200,
     height: 30,
-    marginTop: 50,
+    marginTop: 20,
   },
 
   swipeItem: {
@@ -114,5 +115,11 @@ export default StyleSheet.create({
     width: 5,
     height: 30,
   },
+
+  images: {
+    width: 200, 
+    height: 150,
+    alignSelf:"center",
+  }
 
 });
