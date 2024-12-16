@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import List from "./List";
 
+
 function mapItems(items) {
   return items.map((value, i) => ({ id: i.toString(), name: value }));
 }
