@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { View, Text, StatusBar, SafeAreaView } from "react-native";
 import styles from "../components/styles";
 import ListContainer from "../components/ListContainer";
-import { fetchItemsFilms } from "../api"; 
+import { fetchItemsPlanets } from "../api"; 
 import LazyImage from "../LazyImage";
 
-function ListContainerFilms() {
-  return <ListContainer fetchFunction={fetchItemsFilms} />;
+function ListContainerPlanets() {
+  return <ListContainer fetchFunction={fetchItemsPlanets} />;
 }
 
 const remote = "https://lumiere-a.akamaihd.net/v1/images/aeos-prime-main_1af6e847.jpeg";
@@ -27,7 +27,7 @@ export default function Films({ navigation }) {
         <Text style={styles.boxText}>DISCOVER THE STARWARS PLANETS HERE!</Text>
       </View>
       <View style={styles.container}>
-        <ListContainerFilms />
+        <ListContainerPlanets />
       </View>
     </SafeAreaView>
   );
