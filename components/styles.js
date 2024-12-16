@@ -36,7 +36,7 @@ export default StyleSheet.create({
     shadowRadius: 4,
     elevation: 10,
     marginVertical: 20,
-    marginBottom:-50,
+    marginBottom:0,
     alignItems: "center",
   },
   boxText: {
