@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { View, Text, StatusBar, SafeAreaView } from "react-native";
 import styles from "../components/styles";
 import ListContainer from "../components/ListContainer";
-import { fetchItemsFilms } from "../api"; 
+import { fetchItemsSpace } from "../api"; 
 import LazyImage from "../LazyImage";
 
-function ListContainerFilms() {
-  return <ListContainer fetchFunction={fetchItemsFilms} />;
+function ListContainerSpace() {
+  return <ListContainer fetchFunction={fetchItemsSpace} />;
 }
 
 const remote = "https://lumiere-a.akamaihd.net/v1/images/vaders-tie-fighter_8bcb92e1.jpeg";
@@ -27,7 +27,7 @@ export default function Films({ navigation }) {
         <Text style={styles.boxText}>DISCOVER THE STARWARS SPACESHIP HERE!</Text>
       </View>
       <View style={styles.container}>
-        <ListContainerFilms />
+        <ListContainerSpace />
       </View>
     </SafeAreaView>
   );
