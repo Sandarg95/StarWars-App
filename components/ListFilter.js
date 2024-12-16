@@ -28,8 +28,7 @@ export default function ListFilter({ onFilter }) {
           
         }}
       />
-      {/* Trigger the Notification component with the current text */}
-      {changedText && <Notification message={changedText} />}
+      
     </View>
   );
 }
