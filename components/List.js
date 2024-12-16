@@ -1,38 +1,43 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FlatList, View, Text } from "react-native";
 import PropTypes from "prop-types";
+import { useNavigation } from "@react-navigation/native";
 import styles from "./styles";
-import Notification from "../notifications/Notification";
+import Notification from "../notifications/Notification.ios";
 import Swipeable from "../Swipeable";
-import ListControls from "./ListControls"; // Assuming ListControls is in the same directory
+import ListControls from "./ListControls"; 
+import DetailPage from "../screen/DetailPage";
 
 export default function List({ data, Controls, onFilter, onSort, asc }) {
+  const navigation = useNavigation();
   const [notificationMessage, setNotificationMessage] = useState(null);
 
-  const handleSwipe = (id) => {
-    const item = data.find((item) => item.id === id);
-    if (item) {
-      setNotificationMessage(`You swiped: ${item.name}`);
-    }
+  const handleSwipe = (item) => {
+    navigation.navigate("DetailPage", { item }); 
   };
 
   const renderItem = ({ item }) => (
-    <Swipeable name={item.name} onSwipe={() => handleSwipe(item.id)} />
+    <Swipeable
+      name={item.name}
+      onSwipe={() => handleSwipe(item)} 
+    >
+      <View style={styles.itemContainer}>
+        <Text style={styles.itemText}>{item.name}</Text>
+      </View>
+    </Swipeable>
   );
 
   return (
     <View>
       <FlatList
         data={data}
-        keyExtractor={(item) => item.id.toString()} 
+        keyExtractor={(item) => item.id.toString()}
         ListHeaderComponent={
           <Controls onFilter={onFilter} onSort={onSort} asc={asc} />
         }
-        renderItem={renderItem} 
+        renderItem={renderItem}
       />
-      {notificationMessage && (
-        <Notification message={notificationMessage} /> 
-      )}
+      {notificationMessage && <Notification message={notificationMessage} />}
     </View>
   );
 }
